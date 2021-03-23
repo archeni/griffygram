@@ -1,6 +1,17 @@
+import { getPosts, getUsers } from "./data/DataManager.js"
+import { PostList } from "./feed/PostList.js"
+
+const showPostList = () => {
+	//Get a reference to the location on the DOM where the list will display
+	const postElement = document.querySelector(".postList");
+	getPosts().then((allPosts) => {
+		postElement.innerHTML = PostList(allPosts);
+	})
+}
+
+
 const startGiffyGram = () => {
-  const postElement = document.querySelector(".postList");
-  postElement.innerHTML = "Hello Cohort 47"
+	showPostList();
 }
 // Are you defining the function here or invoking it?
 
